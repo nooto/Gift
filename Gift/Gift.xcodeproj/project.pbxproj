@@ -13,6 +13,7 @@
 		E217AF9C1C1C122500F17729 /* btn_login_back_pressed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E217AF961C1C122500F17729 /* btn_login_back_pressed@3x.png */; };
 		E217AF9D1C1C122500F17729 /* EHCustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E217AF981C1C122500F17729 /* EHCustomNavBar.m */; };
 		E217AF9E1C1C122500F17729 /* EHNavButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E217AF9A1C1C122500F17729 /* EHNavButton.m */; };
+		E260A0931C1E7201007AB2A4 /* sound.plist in Resources */ = {isa = PBXBuildFile; fileRef = E260A0921C1E7201007AB2A4 /* sound.plist */; };
 		E2A90DC31C170277004EDFE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90DC21C170277004EDFE5 /* main.m */; };
 		E2A90DC61C170277004EDFE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90DC51C170277004EDFE5 /* AppDelegate.m */; };
 		E2A90DC91C170277004EDFE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90DC81C170277004EDFE5 /* ViewController.m */; };
@@ -84,6 +85,7 @@
 		E217AF981C1C122500F17729 /* EHCustomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHCustomNavBar.m; sourceTree = "<group>"; };
 		E217AF991C1C122500F17729 /* EHNavButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHNavButton.h; sourceTree = "<group>"; };
 		E217AF9A1C1C122500F17729 /* EHNavButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHNavButton.m; sourceTree = "<group>"; };
+		E260A0921C1E7201007AB2A4 /* sound.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sound.plist; sourceTree = "<group>"; };
 		E2A90DBE1C170277004EDFE5 /* Gift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A90DC21C170277004EDFE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2A90DC41C170277004EDFE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				E2A90DCD1C170277004EDFE5 /* Assets.xcassets */,
 				E2A90DCF1C170277004EDFE5 /* LaunchScreen.storyboard */,
 				E2A90DD21C170277004EDFE5 /* Info.plist */,
+				E260A0921C1E7201007AB2A4 /* sound.plist */,
 				E2A90DC11C170277004EDFE5 /* Supporting Files */,
 			);
 			path = Gift;
@@ -543,6 +546,7 @@
 				E217AF9C1C1C122500F17729 /* btn_login_back_pressed@3x.png in Resources */,
 				E2A90DCE1C170277004EDFE5 /* Assets.xcassets in Resources */,
 				E217AF9B1C1C122500F17729 /* btn_login_back_normal@3x.png in Resources */,
+				E260A0931C1E7201007AB2A4 /* sound.plist in Resources */,
 				E2A90DCC1C170277004EDFE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

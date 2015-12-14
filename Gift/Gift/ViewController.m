@@ -5,6 +5,7 @@
 //  Created by GaoAng on 15/12/8.
 //  Copyright © 2015年 GaoAng. All rights reserved.
 //
+#import <AudioToolbox/AudioToolbox.h>
 
 #import "ViewController.h"
 #import "Masonry.h"
@@ -52,7 +53,6 @@
     }];
 }
 
-
 -(UIView*)mWechatView{
     if (!_mWechatView) {
         _mWechatView = [UIView new];
@@ -96,9 +96,21 @@
 }
 
 
+-(IBAction)buttonAction:(id)sender{
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+
+
 
 @end
