@@ -7,11 +7,15 @@
 //
 
 #import "GWCViewController.h"
-
+#import "GSendViewController.h"
 @interface GWCViewController ()
 @property (nonatomic, strong) UIImageView  *mAvatorImage;
 @property (nonatomic, strong) UITextField  *mNameTextField;
 
+
+@property (nonatomic, strong) UITextField  *mTotalAmount;
+@property (nonatomic, strong) UITextField  *mReceiveNumber;
+@property (nonatomic, strong) UITextField  *mBestNumber;
 
 @property (nonatomic, strong) UIButton *mSendButton;
 @property (nonatomic, strong) UIButton *mReceiveButton;
@@ -24,11 +28,17 @@
     [self.view addSubview:self.mAvatorImage];
     [self.view addSubview:self.mNameTextField];
     
+    [self.view addSubview:self.mTotalAmount];
+    [self.view addSubview:self.mReceiveNumber];
+    [self.view addSubview:self.mBestNumber];
+    
     [self.view addSubview:self.mSendButton];
     [self.view addSubview:self.mReceiveButton];
     [self.view addSubview:self.mHistoryButton];
     
     __weak typeof(self.view )weakSelfView = self.view;
+    
+    //头像
     [self.mAvatorImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(weakSelfView.mas_width).multipliedBy(0.25);
         make.height.equalTo(weakSelfView.mas_width).multipliedBy(0.25);
@@ -41,6 +51,26 @@
         make.top.equalTo(self.mAvatorImage.mas_bottom).offset(10);
         make.width.equalTo(weakSelfView.mas_width).multipliedBy(0.5);
         make.height.mas_equalTo(30);
+    }];
+    
+    //
+    [self.mTotalAmount mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(weakSelfView.mas_centerX);
+        make.top.equalTo(self.mNameTextField.mas_bottom).offset(20);
+        make.width.equalTo(weakSelfView.mas_width).multipliedBy(0.8);
+        make.height.mas_equalTo(30);
+    }];
+    
+    [self.mReceiveNumber mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mTotalAmount.mas_bottom).offset(10);
+        make.left.equalTo(self.mTotalAmount.mas_left);
+        make.size.equalTo(self.mTotalAmount);
+    }];
+    
+    [self.mBestNumber mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mReceiveNumber.mas_bottom).offset(10);
+        make.left.equalTo(self.mReceiveNumber.mas_left);
+        make.size.equalTo(self.mReceiveNumber);
     }];
     
     [self.mSendButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -67,7 +97,10 @@
     }];
 }
 
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+}
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     self.mAvatorImage.layer.cornerRadius = CGRectGetWidth(self.mAvatorImage.frame)/2;
@@ -93,7 +126,11 @@
         _mNameTextField.layer.borderWidth = 0.5f;
         _mNameTextField.clearButtonMode = UITextFieldViewModeAlways;
         
-        _mNameTextField.leftView.backgroundColor = [UIColor greenColor];
+        UILabel *leftLabel = [UILabel new];
+        [leftLabel setText:@"昵称："];
+        leftLabel.font = Font14;
+        [leftLabel sizeToFit];
+        _mNameTextField.leftView = leftLabel;
         _mNameTextField.leftViewMode = UITextFieldViewModeAlways;
         
         _mNameTextField.rightView.backgroundColor = [UIColor redColor];
@@ -102,14 +139,84 @@
     return _mNameTextField;
 }
 
+-(UITextField*)mTotalAmount{
+    if (!_mTotalAmount) {
+        _mTotalAmount = [UITextField new];
+        _mTotalAmount.textAlignment = NSTextAlignmentLeft;
+        _mTotalAmount.font = Font14;
+        _mTotalAmount.textColor = Color_black_50;
+        _mTotalAmount.layer.cornerRadius = 5.0f;
+        _mTotalAmount.layer.borderColor = Color_black_30.CGColor;
+        _mTotalAmount.layer.borderWidth = 1.0f;
+        _mTotalAmount.clearButtonMode = UITextFieldViewModeAlways;
+        _mTotalAmount.keyboardType = UIKeyboardTypePhonePad;
+
+        UILabel *leftLabel = [UILabel new];
+        [leftLabel setText:@" 红包金额："];
+        leftLabel.font = Font14;
+        [leftLabel sizeToFit];
+        _mTotalAmount.leftView = leftLabel;
+        _mTotalAmount.leftViewMode = UITextFieldViewModeAlways;
+        
+    }
+    return _mTotalAmount;
+}
+
+-(UITextField*)mReceiveNumber{
+    if (!_mReceiveNumber) {
+        _mReceiveNumber = [UITextField new];
+        _mReceiveNumber.textAlignment = NSTextAlignmentLeft;
+        _mReceiveNumber.font = Font14;
+        _mReceiveNumber.textColor = Color_black_50;
+        _mReceiveNumber.layer.cornerRadius = 5.0f;
+        _mReceiveNumber.layer.borderColor = Color_black_30.CGColor;
+        _mReceiveNumber.layer.borderWidth = 1.0f;
+        _mReceiveNumber.clearButtonMode = UITextFieldViewModeAlways;
+        _mReceiveNumber.keyboardType = UIKeyboardTypePhonePad;
+        UILabel *leftLabel = [UILabel new];
+        [leftLabel setText:@" 红包个数："];
+        leftLabel.font = Font14;
+        [leftLabel sizeToFit];
+        _mReceiveNumber.leftView = leftLabel;
+        _mReceiveNumber.leftViewMode = UITextFieldViewModeAlways;
+        
+    }
+    return _mReceiveNumber;
+}
+
+-(UITextField*)mBestNumber{
+    if (!_mBestNumber) {
+        _mBestNumber = [UITextField new];
+        _mBestNumber.textAlignment = NSTextAlignmentLeft;
+        _mBestNumber.font = Font14;
+        _mBestNumber.textColor = Color_black_50;
+        _mBestNumber.layer.cornerRadius = 5.0f;
+        _mBestNumber.layer.borderColor = Color_black_30.CGColor;
+        _mBestNumber.layer.borderWidth = 1.0f;
+        _mBestNumber.clearButtonMode = UITextFieldViewModeAlways;
+        _mBestNumber.keyboardType = UIKeyboardTypePhonePad;
+
+        UILabel *leftLabel = [UILabel new];
+        [leftLabel setText:@" 最佳手气："];
+        leftLabel.font = Font14;
+        [leftLabel sizeToFit];
+        _mBestNumber.leftView = leftLabel;
+        _mBestNumber.leftViewMode = UITextFieldViewModeAlways;
+        
+    }
+    return _mBestNumber;
+}
+
 -(UIButton*)mSendButton{
     if (!_mSendButton) {
         _mSendButton = [UIButton new];
-        [_mSendButton setTitle:@"收到" forState:UIControlStateNormal];
+        [_mSendButton setTitle:@"发出" forState:UIControlStateNormal];
         _mSendButton.layer.borderWidth = 1.0f;
         _mSendButton.layer.borderColor = Color_black_50.CGColor;
         _mSendButton.showsTouchWhenHighlighted = YES;
         [_mSendButton setTitleColor:Color_black_50 forState:UIControlStateNormal];
+        [_mSendButton addTarget:self action:@selector(sendButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
     }
     return _mSendButton;
 }
@@ -117,7 +224,7 @@
 -(UIButton*)mReceiveButton{
     if (!_mReceiveButton) {
         _mReceiveButton = [UIButton new];
-        [_mReceiveButton setTitle:@"发出" forState:UIControlStateNormal];
+        [_mReceiveButton setTitle:@"收到" forState:UIControlStateNormal];
         _mReceiveButton.layer.borderWidth = 1.0f;
         _mReceiveButton.layer.borderColor = Color_black_50.CGColor;
         _mReceiveButton.showsTouchWhenHighlighted = YES;
@@ -138,6 +245,10 @@
     return _mHistoryButton;
 }
 
+-(void)sendButtonAction:(UIButton*)sender{
+    GSendViewController *vc = [[GSendViewController alloc] init];
+    [self pushViewController:vc];
+}
 
 
 @end

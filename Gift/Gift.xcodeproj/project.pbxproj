@@ -55,6 +55,7 @@
 		E2A90E621C17036F004EDFE5 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90E3D1C17036F004EDFE5 /* NSObject+MJKeyValue.m */; };
 		E2A90E631C17036F004EDFE5 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90E401C17036F004EDFE5 /* SFHFKeychainUtils.m */; };
 		E2A90E641C17036F004EDFE5 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90E421C17036F004EDFE5 /* Utility.m */; };
+		E2F7A8DC1C22CF9100A81B49 /* GSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7A8DB1C22CF9100A81B49 /* GSendViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,8 @@
 		E2A90E411C17036F004EDFE5 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		E2A90E421C17036F004EDFE5 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		E2A90E431C17036F004EDFE5 /* UtilityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityHelper.h; sourceTree = "<group>"; };
+		E2F7A8DA1C22CF9100A81B49 /* GSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSendViewController.h; sourceTree = "<group>"; };
+		E2F7A8DB1C22CF9100A81B49 /* GSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSendViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +224,8 @@
 			children = (
 				E217AF911C1C0C3B00F17729 /* GWCViewController.h */,
 				E217AF921C1C0C3B00F17729 /* GWCViewController.m */,
+				E2F7A8DA1C22CF9100A81B49 /* GSendViewController.h */,
+				E2F7A8DB1C22CF9100A81B49 /* GSendViewController.m */,
 			);
 			path = WeChat;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				E2A90E611C17036F004EDFE5 /* NSObject+MJIvar.m in Sources */,
 				E2A90DC31C170277004EDFE5 /* main.m in Sources */,
 				E2A90E4E1C17036F004EDFE5 /* ViewController+MASAdditions.m in Sources */,
+				E2F7A8DC1C22CF9100A81B49 /* GSendViewController.m in Sources */,
 				E217AF8D1C1C04B200F17729 /* GBaseViewController.m in Sources */,
 				E2A90E4D1C17036F004EDFE5 /* View+MASAdditions.m in Sources */,
 				E2A90E491C17036F004EDFE5 /* MASViewAttribute.m in Sources */,

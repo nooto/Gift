@@ -36,6 +36,7 @@
     titleLabel.font = Font17Bold;
     titleLabel.textColor = Color_white_100;
     [titleLabel setBackgroundColor:[UIColor clearColor]];
+    titleLabel.numberOfLines = 2;
 //    titleLabel.text = [RootViewController getSceneTitle];
     self.mTextLabel = titleLabel;
     
@@ -44,7 +45,6 @@
     [leftButton setImage:[UIImage imageNamed:@"btn_login_back_pressed"] forState:UIControlStateHighlighted];
     [leftButton addTarget:self action:@selector(leftButonAction:) forControlEvents:UIControlEventTouchUpInside];
     leftButton.titleLabel.font = _mTextLabel.font;
-    
     [self addSubview:leftButton];
     self.mLeftButton = leftButton;
 }
@@ -54,6 +54,13 @@
     [self.mTextLabel setText:title];
     self.mTextLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds)/2 + 10);
 }
+
+-(void)setAttributeTitle:(NSAttributedString *)attributeTitle{
+    _attributeTitle = attributeTitle;
+    [self.mTextLabel setAttributedText:attributeTitle];
+    self.mTextLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds)/2 + 10);
+}
+
 -(void)leftButonAction:(UIButton*)sender{
     if (_m_delegate && [_m_delegate respondsToSelector:@selector(backBtnPressed:)]) {
         [_m_delegate backBtnPressed:sender];

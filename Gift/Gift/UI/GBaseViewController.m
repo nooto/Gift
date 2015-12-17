@@ -8,7 +8,7 @@
 
 #import "GBaseViewController.h"
 @interface GBaseViewController()<EHCustomNavBarDelegate>
-@property (nonatomic, strong) EHCustomNavBar *mNavBarView;
+//@property (nonatomic, strong) EHCustomNavBar *mNavBarView;
 @end
 
 @implementation GBaseViewController
@@ -56,6 +56,11 @@
 -(void)setTitle:(NSString *)title{
     [super setTitle:title];
     [self.mNavBarView setTitle:title];
+}
+
+-(void)setAttributedTitle:(NSAttributedString *)title{
+    [super setTitle:title.string];
+    [self.mNavBarView setAttributeTitle:title];
 }
 
 -(EHCustomNavBar*)mNavBarView{

@@ -23,9 +23,10 @@
 
 
 //
-
+@property (nonatomic, strong) EHCustomNavBar *mNavBarView;
 -(void)hiddenNavBarView;
 -(void)setTitle:(NSString *)title;
+-(void)setAttributedTitle:(NSAttributedString *)title;
 - (void)backBtnPressed:(UIButton *)sender;
 -(void)addRightButton:(UIButton *)button;
 -(void)hiddeBackButton;

@@ -17,6 +17,7 @@
 @interface EHCustomNavBar : UIView
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSAttributedString *attributeTitle;
 //背景图片
 @property (nonatomic, strong) UIImageView *mImageView;
 

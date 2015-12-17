@@ -13,7 +13,7 @@
 -(id)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.imageSize = CGSizeMake(9, 16);
-        self.gapX = MarginW(20);
+        self.gapX = MarginW(10);
     }
     return self;
 }
