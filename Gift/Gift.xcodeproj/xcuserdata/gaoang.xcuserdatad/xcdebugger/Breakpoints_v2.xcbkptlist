@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Gift/UI/WeChat/GSendViewController.m"
-            timestampString = "472045053.061524"
+            filePath = "Gift/UI/EHCustomNavBar/EHCustomNavBar.m"
+            timestampString = "472046116.397469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-setUpView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

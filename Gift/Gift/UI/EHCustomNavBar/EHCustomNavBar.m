@@ -33,7 +33,7 @@
     [self addSubview:titleLabel];
     titleLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds)/2 + 10);
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = Font17Bold;
+    titleLabel.font = Font16Bold;
     titleLabel.textColor = Color_white_100;
     [titleLabel setBackgroundColor:[UIColor clearColor]];
     titleLabel.numberOfLines = 2;
