@@ -9,7 +9,7 @@
 #import "GSendViewController.h"
 @interface GSendViewController()
 @property (nonatomic, strong) UIImageView *mAvatorImage;
-//@property (nonatomic,)
+@property (nonatomic, strong) UITextField *mNameTextField;
 @end
 @implementation GSendViewController
 
