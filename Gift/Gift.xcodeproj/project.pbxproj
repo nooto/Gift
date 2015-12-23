@@ -55,6 +55,8 @@
 		E2A90E621C17036F004EDFE5 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90E3D1C17036F004EDFE5 /* NSObject+MJKeyValue.m */; };
 		E2A90E631C17036F004EDFE5 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90E401C17036F004EDFE5 /* SFHFKeychainUtils.m */; };
 		E2A90E641C17036F004EDFE5 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90E421C17036F004EDFE5 /* Utility.m */; };
+		E2C2C8ED1C2A90AE004803FC /* GBaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2C8EC1C2A90AE004803FC /* GBaseData.m */; };
+		E2C2C8F01C2A90CB004803FC /* GWCData.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2C8EF1C2A90CB004803FC /* GWCData.m */; };
 		E2F7A8DC1C22CF9100A81B49 /* GSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7A8DB1C22CF9100A81B49 /* GSendViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +179,11 @@
 		E2A90E411C17036F004EDFE5 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		E2A90E421C17036F004EDFE5 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		E2A90E431C17036F004EDFE5 /* UtilityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityHelper.h; sourceTree = "<group>"; };
+		E2C2C8EB1C2A90AE004803FC /* GBaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBaseData.h; sourceTree = "<group>"; };
+		E2C2C8EC1C2A90AE004803FC /* GBaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBaseData.m; sourceTree = "<group>"; };
+		E2C2C8EE1C2A90CB004803FC /* GWCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWCData.h; sourceTree = "<group>"; };
+		E2C2C8EF1C2A90CB004803FC /* GWCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWCData.m; sourceTree = "<group>"; };
+		E2C2C8F11C2A90E7004803FC /* GDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataHelper.h; sourceTree = "<group>"; };
 		E2F7A8DA1C22CF9100A81B49 /* GSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSendViewController.h; sourceTree = "<group>"; };
 		E2F7A8DB1C22CF9100A81B49 /* GSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSendViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,6 +287,7 @@
 		E2A90DC01C170277004EDFE5 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
+				E2C2C8EA1C2A909A004803FC /* DataModel */,
 				E2A90DF41C17036F004EDFE5 /* 3thParty */,
 				E217AF8A1C1C049200F17729 /* UI */,
 				E2A90DC41C170277004EDFE5 /* AppDelegate.h */,
@@ -443,6 +451,18 @@
 			path = SFHFKeychainUtils;
 			sourceTree = "<group>";
 		};
+		E2C2C8EA1C2A909A004803FC /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2C2C8F11C2A90E7004803FC /* GDataHelper.h */,
+				E2C2C8EB1C2A90AE004803FC /* GBaseData.h */,
+				E2C2C8EC1C2A90AE004803FC /* GBaseData.m */,
+				E2C2C8EE1C2A90CB004803FC /* GWCData.h */,
+				E2C2C8EF1C2A90CB004803FC /* GWCData.m */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -595,6 +615,7 @@
 				E2A90E531C17036F004EDFE5 /* NSString+hex.m in Sources */,
 				E217AF931C1C0C3B00F17729 /* GWCViewController.m in Sources */,
 				E2A90E451C17036F004EDFE5 /* MASCompositeConstraint.m in Sources */,
+				E2C2C8ED1C2A90AE004803FC /* GBaseData.m in Sources */,
 				E2A90E4B1C17036F004EDFE5 /* NSArray+MASAdditions.m in Sources */,
 				E2A90E5D1C17036F004EDFE5 /* MJFoundation.m in Sources */,
 				E2A90E5F1C17036F004EDFE5 /* MJType.m in Sources */,
@@ -611,6 +632,7 @@
 				E2A90E4E1C17036F004EDFE5 /* ViewController+MASAdditions.m in Sources */,
 				E2F7A8DC1C22CF9100A81B49 /* GSendViewController.m in Sources */,
 				E217AF8D1C1C04B200F17729 /* GBaseViewController.m in Sources */,
+				E2C2C8F01C2A90CB004803FC /* GWCData.m in Sources */,
 				E2A90E4D1C17036F004EDFE5 /* View+MASAdditions.m in Sources */,
 				E2A90E491C17036F004EDFE5 /* MASViewAttribute.m in Sources */,
 				E2A90E5E1C17036F004EDFE5 /* MJIvar.m in Sources */,
