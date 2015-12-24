@@ -23,6 +23,7 @@
 @property (nonatomic, strong) GWCData *mCurData;
 
 @property (nonatomic, assign) BOOL isSave;
+@property (nonatomic, assign) BOOL isNeedBack;
 @end
 @implementation GSendViewController
 
@@ -154,6 +155,7 @@
         [super backBtnPressed:nil];
     }
     else{
+        self.isNeedBack = YES;
         [self showSaveTIp];
     }
     
@@ -182,13 +184,18 @@
 - (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo{
     NSString *msg = nil ;
     if(error != NULL){
-        msg = @"保存图片失败" ;
+        self.isSave = NO;
+        msg = @"保存图片失败!" ;
     }else{
-        msg = @"保存图片成功" ;
+        self.isSave = YES;
+        msg = @"保存图片成功!" ;
     }
+    
     UIAlertController *alertView = [[UIAlertController alertControllerWithTitle:@"保存图片结果提示" message:msg preferredStyle:UIAlertControllerStyleAlert] init];
     [alertView addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"fadsfadsfadsfadsfadsas");
+        if (_isNeedBack) {
+            [self backBtnPressed:nil];
+        }
     }]];
     [self pushViewController:alertView];
 }
