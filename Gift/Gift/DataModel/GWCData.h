@@ -17,4 +17,5 @@
 @property (nonatomic, strong) NSString *mRecedtive;   //收到的红包个数
 @property (nonatomic, strong) NSString *mBest;     //手气最佳
 
+-(void)loardExampleData;
 @end

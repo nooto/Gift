@@ -14,6 +14,7 @@
 		E217AF9D1C1C122500F17729 /* EHCustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E217AF981C1C122500F17729 /* EHCustomNavBar.m */; };
 		E217AF9E1C1C122500F17729 /* EHNavButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E217AF9A1C1C122500F17729 /* EHNavButton.m */; };
 		E260A0931C1E7201007AB2A4 /* sound.plist in Resources */ = {isa = PBXBuildFile; fileRef = E260A0921C1E7201007AB2A4 /* sound.plist */; };
+		E2A25EB91C2BE1CC000D199D /* EHCustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A25EB81C2BE1CC000D199D /* EHCustomAlertView.m */; };
 		E2A90DC31C170277004EDFE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90DC21C170277004EDFE5 /* main.m */; };
 		E2A90DC61C170277004EDFE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90DC51C170277004EDFE5 /* AppDelegate.m */; };
 		E2A90DC91C170277004EDFE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A90DC81C170277004EDFE5 /* ViewController.m */; };
@@ -89,6 +90,8 @@
 		E217AF991C1C122500F17729 /* EHNavButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHNavButton.h; sourceTree = "<group>"; };
 		E217AF9A1C1C122500F17729 /* EHNavButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHNavButton.m; sourceTree = "<group>"; };
 		E260A0921C1E7201007AB2A4 /* sound.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sound.plist; sourceTree = "<group>"; };
+		E2A25EB71C2BE1CC000D199D /* EHCustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHCustomAlertView.h; sourceTree = "<group>"; };
+		E2A25EB81C2BE1CC000D199D /* EHCustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHCustomAlertView.m; sourceTree = "<group>"; };
 		E2A90DBE1C170277004EDFE5 /* Gift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A90DC21C170277004EDFE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2A90DC41C170277004EDFE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -264,6 +267,23 @@
 			path = EHCustomNavBar;
 			sourceTree = "<group>";
 		};
+		E2A25EB51C2BE1CC000D199D /* CustomControl */ = {
+			isa = PBXGroup;
+			children = (
+				E2A25EB61C2BE1CC000D199D /* CustomAlertView */,
+			);
+			path = CustomControl;
+			sourceTree = "<group>";
+		};
+		E2A25EB61C2BE1CC000D199D /* CustomAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				E2A25EB71C2BE1CC000D199D /* EHCustomAlertView.h */,
+				E2A25EB81C2BE1CC000D199D /* EHCustomAlertView.m */,
+			);
+			path = CustomAlertView;
+			sourceTree = "<group>";
+		};
 		E2A90DB51C170277004EDFE5 = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +307,7 @@
 		E2A90DC01C170277004EDFE5 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
+				E2A25EB51C2BE1CC000D199D /* CustomControl */,
 				E2C2C8EA1C2A909A004803FC /* DataModel */,
 				E2A90DF41C17036F004EDFE5 /* 3thParty */,
 				E217AF8A1C1C049200F17729 /* UI */,
@@ -629,6 +650,7 @@
 				E2A90E481C17036F004EDFE5 /* MASLayoutConstraint.m in Sources */,
 				E2A90E611C17036F004EDFE5 /* NSObject+MJIvar.m in Sources */,
 				E2A90DC31C170277004EDFE5 /* main.m in Sources */,
+				E2A25EB91C2BE1CC000D199D /* EHCustomAlertView.m in Sources */,
 				E2A90E4E1C17036F004EDFE5 /* ViewController+MASAdditions.m in Sources */,
 				E2F7A8DC1C22CF9100A81B49 /* GSendViewController.m in Sources */,
 				E217AF8D1C1C04B200F17729 /* GBaseViewController.m in Sources */,

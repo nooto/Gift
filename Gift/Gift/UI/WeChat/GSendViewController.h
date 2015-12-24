@@ -9,5 +9,5 @@
 #import "GBaseViewController.h"
 
 @interface GSendViewController : GBaseViewController
-
+-(instancetype)initWithWCData:(GWCData*)data;
 @end

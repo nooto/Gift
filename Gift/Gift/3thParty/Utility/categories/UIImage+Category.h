@@ -19,6 +19,6 @@
 //+ (UIImage *)scaleImage:(UIImage *)image ToSize:(CGSize)size;//默认设置为圆形
 + (UIImage *)scaleImageFromImageView:(UIImageView *)imageView;//添加默认尺寸
 + (UIImage *)scaleImageFromImageView:(UIImageView *)imageView imageBounds:(CGRect)imageBounds;//添加指定尺寸
-
++ (UIImage *)imageWithView:(UIView *)orgView;
 @end
 

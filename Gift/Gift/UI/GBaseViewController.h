@@ -10,7 +10,8 @@
 #import "Masonry.h"
 #import "UtilityHelper.h"
 #import "EHCustomNavBar.h"
-
+#import "GDataHelper.h"
+#import "EHCustomAlertView.h"
 @interface GBaseViewController : UIViewController
 
 

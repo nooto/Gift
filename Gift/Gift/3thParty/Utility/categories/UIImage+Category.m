@@ -52,6 +52,17 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     CGContextClosePath(context);
     CGContextRestoreGState(context);
 }
++ (UIImage *)imageWithView:(UIView *)orgView{
+    if (!orgView) {
+        return nil;
+    }
+    
+    UIGraphicsBeginImageContext(orgView.bounds.size);
+    [orgView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 
 + (UIImage *)createRoundedRectImage:(UIImage *)image Withsize:(CGSize)size radius:(NSInteger)radius
 {

@@ -246,7 +246,7 @@
 }
 
 -(void)sendButtonAction:(UIButton*)sender{
-    GSendViewController *vc = [[GSendViewController alloc] init];
+    GSendViewController *vc = [[GSendViewController alloc] initWithWCData:[[GWCData alloc] init]];
     [self pushViewController:vc];
 }
 

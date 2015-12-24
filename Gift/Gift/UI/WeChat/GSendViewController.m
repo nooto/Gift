@@ -20,8 +20,20 @@
 @property (nonatomic, strong) UILabel *mBestLabel;
 
 
+@property (nonatomic, strong) GWCData *mCurData;
+
+@property (nonatomic, assign) BOOL isSave;
 @end
 @implementation GSendViewController
+
+-(instancetype)initWithWCData:(GWCData*)data{
+    if (self = [super init]) {
+        self.mCurData = data;
+        self.isSave = NO;
+    }
+    
+    return self;
+}
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -120,15 +132,65 @@
     }];
     
     
-    [self.mNameLabel setText:@"哈哈收到的红包"];
-    [self.mCountLabel setText:@"720.13"];
+    [self.mNameLabel setText:self.mCurData.name];
+    [self.mCountLabel setText:self.mCurData.mCount];
     
-    [self.mReceiveCountLabel setText:@"720.13"];
+    [self.mReceiveCountLabel setText:self.mCurData.mRecedtive];
     [self.mReceiveLabel setText:@"收到的红包"];
     
-    [self.mBestCountLabel setText:@"720.132223"];
+    [self.mBestCountLabel setText:self.mCurData.mBest];
     [self.mBestLabel setText:@"收到的红包32323"];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self showSaveTIp];
+}
+
+
+-(void)backBtnPressed:(UIButton *)sender{
+    if (self.isSave) {
+        [super backBtnPressed:nil];
+    }
+    else{
+        [self showSaveTIp];
+    }
+    
+}
+
+
+-(void)showSaveTIp{
+    
+    UIImageView *imagev = [[UIImageView alloc] init];
+    imagev.image = [UIImage imageWithView:self.view];
+    
+    WeakSelf(weakSelf);
+    EHCustomAlertView *alertView = [[EHCustomAlertView alloc] initWithTitle:nil message:@"是否保存到相册" leftButton:@"不保存" rightButton:@"保存" selectActin:^(NSInteger index) {
+        if (index == 1) {
+            weakSelf.isSave = YES;
+            UIImageWriteToSavedPhotosAlbum(imagev.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        }
+        else{
+            weakSelf.isSave = NO;
+        }
+    }];
+    
+    [alertView show];
+}
+
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo{
+    NSString *msg = nil ;
+    if(error != NULL){
+        msg = @"保存图片失败" ;
+    }else{
+        msg = @"保存图片成功" ;
+    }
+    UIAlertController *alertView = [[UIAlertController alertControllerWithTitle:@"保存图片结果提示" message:msg preferredStyle:UIAlertControllerStyleAlert] init];
+    [alertView addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"fadsfadsfadsfadsfadsas");
+    }]];
+    [self pushViewController:alertView];
 }
 
 -(void)viewDidLayoutSubviews{
