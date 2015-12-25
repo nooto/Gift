@@ -19,6 +19,10 @@
 @property (nonatomic, strong) UILabel *mBestCountLabel;
 @property (nonatomic, strong) UILabel *mBestLabel;
 
+@property (nonatomic, strong) UILabel *mFirstName;
+@property (nonatomic, strong) UILabel *mFirstCount;
+@property (nonatomic, strong) UILabel *mSecondName;
+@property (nonatomic, strong) UILabel *mSecondCount;
 
 @property (nonatomic, strong) GWCData *mCurData;
 
@@ -132,15 +136,47 @@
         make.height.equalTo(weakSelf.mReceiveLabel.mas_height);
     }];
     
+    //认
+    UIView *bottomView = [UIView new];
+    bottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:bottomView];
+    
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(weakSelf.view.mas_width);
+        make.height.equalTo(weakSelf.view.mas_height).multipliedBy(0.2);
+        make.bottom.equalTo(weakSelf.view.mas_bottom);
+    }];
+    
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = Color_black_30;
+    [bottomView addSubview:lineView];
+    
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(0.5);
+        make.left.equalTo(bottomView.mas_left).offset(20);
+        make.right.equalTo(bottomView.mas_right);
+        make.centerY.mas_equalTo(bottomView.mas_centerY);
+    }];
+//    self.
+    
+    [self.view addSubview:self.mFirstCount];
+    [self.view addSubview:self.mFirstName];
+    [self.view addSubview:self.mSecondCount];
+    [self.view addSubview:self.mSecondName];
+    
+    [self.mSecondName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.view.mas_left).offset(-20);
+        make.width.equalTo(weakSelf.view.mas_width).dividedBy(2).offset(20);
+        make.bottom.equalTo(bottomView.mas_bottom).offset(20);
+        
+    }];
+    
+    
     
     [self.mNameLabel setText:self.mCurData.name];
     [self.mCountLabel setText:self.mCurData.mCount];
-    
     [self.mReceiveCountLabel setText:self.mCurData.mRecedtive];
-    [self.mReceiveLabel setText:@"收到的红包"];
-    
     [self.mBestCountLabel setText:self.mCurData.mBest];
-    [self.mBestLabel setText:@"收到的红包32323"];
     
 }
 
@@ -158,7 +194,6 @@
         self.isNeedBack = YES;
         [self showSaveTIp];
     }
-    
 }
 
 
@@ -191,13 +226,14 @@
         msg = @"保存图片成功!" ;
     }
     
-    UIAlertController *alertView = [[UIAlertController alertControllerWithTitle:@"保存图片结果提示" message:msg preferredStyle:UIAlertControllerStyleAlert] init];
-    [alertView addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alertController = [[UIAlertController alertControllerWithTitle:@"保存图片结果提示" message:msg preferredStyle:UIAlertControllerStyleAlert] init];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         if (_isNeedBack) {
             [self backBtnPressed:nil];
         }
     }]];
-    [self pushViewController:alertView];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(void)viewDidLayoutSubviews{
@@ -253,6 +289,7 @@
         _mReceiveLabel = [UILabel new];
         [_mReceiveLabel setFont:Font15];
         [_mReceiveLabel setTextColor:Color_black_30];
+        [_mReceiveLabel setText:@"收到的红包"];
         _mReceiveLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _mReceiveLabel;
@@ -272,12 +309,51 @@
 - (UILabel*)mBestLabel{
     if (!_mBestLabel) {
         _mBestLabel = [UILabel new];
+        [_mBestLabel setText:@"收到的红包32323"];
         [_mBestLabel setFont:self.mReceiveLabel.font];
         [_mReceiveLabel setTextColor:self.mReceiveLabel.textColor];
         _mBestLabel.textAlignment = self.mReceiveLabel.textAlignment;
     }
     return _mBestLabel;
 }
+
+- (UILabel*)mFirstName{
+    if (!_mFirstName) {
+        _mFirstName = [UILabel new];
+        [_mFirstName setFont:self.mReceiveCountLabel.font];
+        [_mFirstName setTextColor:self.mReceiveCountLabel.textColor];
+        _mFirstName.textAlignment = self.mReceiveCountLabel.textAlignment;
+    }
+    return _mFirstName;
+}
+- (UILabel*)mFirstCount{
+    if (!_mFirstCount) {
+        _mFirstCount = [UILabel new];
+        [_mFirstCount setFont:self.mReceiveCountLabel.font];
+        [_mFirstCount setTextColor:self.mReceiveCountLabel.textColor];
+        _mFirstCount.textAlignment = self.mReceiveCountLabel.textAlignment;
+    }
+    return _mFirstCount;
+}
+- (UILabel*)mSecondName{
+    if (!_mSecondName) {
+        _mSecondName = [UILabel new];
+        [_mSecondName setFont:self.mReceiveCountLabel.font];
+        [_mSecondName setTextColor:self.mReceiveCountLabel.textColor];
+        _mSecondName.textAlignment = self.mReceiveCountLabel.textAlignment;
+    }
+    return _mSecondName;
+}
+- (UILabel*)mSecondCount{
+    if (!_mSecondCount) {
+        _mSecondCount = [UILabel new];
+        [_mSecondCount setFont:self.mReceiveCountLabel.font];
+        [_mSecondCount setTextColor:self.mReceiveCountLabel.textColor];
+        _mSecondCount.textAlignment = self.mReceiveCountLabel.textAlignment;
+    }
+    return _mSecondCount;
+}
+
 
 
 

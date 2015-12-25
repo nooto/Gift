@@ -51,6 +51,13 @@
 -(void)popToRootViewControllerNoAnimated{
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
+//- (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^ __nullable)(void))completion NS_AVAILABLE_IOS(5_0);
+
+
+
+-(void)presentViewController:(UIViewController*)vc completio:(void(^)(void))complete{
+    [self.navigationController presentViewController:vc animated:YES completion:complete];
+}
 
 //
 -(void)setTitle:(NSString *)title{
@@ -77,6 +84,7 @@
 
 - (void)backBtnPressed:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)addRightButton:(UIButton *)button{

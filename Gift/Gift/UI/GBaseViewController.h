@@ -19,6 +19,8 @@
 -(void)pushViewControllerNoAnimated:(UIViewController*)vc;
 -(void)popViewControllerNoAnimated;
 -(void)popViewControllerAnimated;
+
+-(void)presentViewController:(UIViewController*)vc completio:(void(^)(void))complete;
 -(void)popToRootViewControllerAnimated;
 -(void)popToRootViewControllerNoAnimated;
 
