@@ -19,10 +19,16 @@
 @property (nonatomic, strong) UILabel *mBestCountLabel;
 @property (nonatomic, strong) UILabel *mBestLabel;
 
+@property (nonatomic, strong) UIView *mBottomView;
+@property (nonatomic, strong) UIView *mLineView;
 @property (nonatomic, strong) UILabel *mFirstName;
+@property (nonatomic, strong) UILabel *mFirstPingLabel;
 @property (nonatomic, strong) UILabel *mFirstCount;
+
 @property (nonatomic, strong) UILabel *mSecondName;
+@property (nonatomic, strong) UILabel *mSecondPingLabel;
 @property (nonatomic, strong) UILabel *mSecondCount;
+
 
 @property (nonatomic, strong) GWCData *mCurData;
 
@@ -137,85 +143,51 @@
     }];
     
     //认
-    UIView *bottomView = [UIView new];
-    bottomView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:bottomView];
-    
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.mBottomView];
+    [self.mBottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(weakSelf.view.mas_width);
         make.height.equalTo(weakSelf.view.mas_height).multipliedBy(0.2);
         make.bottom.equalTo(weakSelf.view.mas_bottom);
     }];
     
-    UIView *lineView = [UIView new];
-    lineView.backgroundColor = Color_black_30;
-    [bottomView addSubview:lineView];
+    [self.view addSubview:self.mLineView];
     
-//    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.width.equalTo(bottomView.mas_width);
-//        make.height.mas_equalTo(0.5f);
-//        make.centerX.equalTo(bottomView.mas_height).dividedBy(2);
-////        make.bottom.equalTo(weakSelf.view.mas_bottom);
-//
-////        make.left.equalTo(bottomView.mas_left).offset(20);
-////        make.right.equalTo(bottomView.mas_right);
-////        make.centerY.equalTo(bottomView.mas_height).multipliedBy(0.5);
-////        make.height.mas_equalTo(0.5);
-////        make.width.equalTo(bottomView.mas_width).offset(-20);
-////        make.centerY.mas_equalTo(bottomView.mas_centerY);
-//    }];
-////    self.
-    
-    UILabel *pingLabel = [UILabel new];
-    [pingLabel setText:@"拼"];
-    pingLabel.textColor = [UIColor whiteColor];
-    pingLabel.backgroundColor = Color_orange_F866822;
-    pingLabel.font = Font15;
-    pingLabel.layer.cornerRadius = 2.0f;
-    [self.view addSubview:pingLabel];
+    [self.mLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.left.equalTo(weakSelf.view.mas_left).offset(20);
+        make.right.equalTo(weakSelf.view.mas_right);
+        make.height.mas_equalTo(0.5);
+        make.centerY.equalTo(weakSelf.mBottomView.mas_centerY);
+    }];
     
     [self.view addSubview:self.mFirstCount];
-    [self.view addSubview:pingLabel];
+    [self.view addSubview:self.mFirstPingLabel];
     [self.view addSubview:self.mFirstName];
     
-    
     [self.view addSubview:self.mSecondCount];
-    
-    UILabel *pingLabel2 = [UILabel new];
-    [pingLabel2 setText:pingLabel.text];
-    pingLabel2.textColor = pingLabel.textColor;
-    pingLabel2.backgroundColor = pingLabel.backgroundColor;
-    pingLabel2.font = pingLabel.font;
-    pingLabel2.layer.cornerRadius = pingLabel.layer.cornerRadius;
-    [self.view addSubview:pingLabel2];
-
-    
+    [self.view addSubview:self.mSecondPingLabel];
     [self.view addSubview:self.mSecondName];
     
     [self.mFirstName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.view.mas_left).offset(-20);
-        make.centerY.equalTo(bottomView.mas_height).dividedBy(4);
+        make.left.equalTo(weakSelf.mBottomView.mas_left).offset(20);
         make.width.mas_equalTo(40);
+        make.top.equalTo(weakSelf.mBottomView.mas_top).offset(20);
         make.height.mas_equalTo(25);
     
     }];
-//    self.mFirstName.mas_
     
-    [pingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.mFirstPingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(weakSelf.mFirstName.mas_centerY);
         make.left.equalTo(weakSelf.mFirstName.mas_right);
-        make.width.mas_equalTo(30);
-        make.width.mas_equalTo(30);
     }];
-    
+
     UILabel *firstDate = [UILabel new];
     [firstDate setFont:Font13];
     [firstDate setTextColor:Color_black_30];
     NSDate *date = [NSDate date];
     [firstDate setText:[NSString stringWithFormat:@"%ld-%2ld",(long)date.month,(long)date.day]];
-    [bottomView addSubview:firstDate];
-    
+    [self.mBottomView addSubview:firstDate];
+
     [firstDate mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.mFirstName.mas_left);
         make.top.equalTo(weakSelf.mFirstName.mas_bottom);
@@ -229,21 +201,19 @@
         make.height.equalTo(weakSelf.mFirstName.mas_height);
         make.width.equalTo(weakSelf.mFirstName.mas_width);
     }];;
-    
+
     
     
     [self.mSecondName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.mFirstName.mas_left);
-        make.centerY.equalTo(bottomView.mas_height).multipliedBy(0.75);
-        make.width.mas_equalTo(weakSelf.mFirstName.width);
-        make.height.mas_equalTo(weakSelf.mFirstName.height);
+        make.left.equalTo(weakSelf.mBottomView.mas_left).offset(20);
+        make.width.mas_equalTo(40);
+        make.bottom.equalTo(weakSelf.mBottomView.mas_bottom).offset(-20);
+        make.height.mas_equalTo(25);
     }];
     
-    [pingLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.mSecondPingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(weakSelf.mSecondName.mas_centerY);
         make.left.equalTo(weakSelf.mSecondName.mas_right);
-        make.width.mas_equalTo(30);
-        make.width.mas_equalTo(30);
     }];
     
     [self.mSecondCount mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -258,7 +228,7 @@
     [secondDate setTextColor:Color_black_30];
     NSDate *date22 = [NSDate date];
     [secondDate setText:[NSString stringWithFormat:@"%ld-%2ld",(long)date22.month,(long)date22.day]];
-    [bottomView addSubview:secondDate];
+    [_mBottomView addSubview:secondDate];
     
     [secondDate mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.mSecondName.mas_left);
@@ -267,7 +237,6 @@
         make.height.equalTo(weakSelf.mSecondName.mas_height);
     }];
 
-    
     
     
     
@@ -500,6 +469,23 @@
     return _mBestLabel;
 }
 
+-(UIView*)mBottomView{
+    if (!_mBottomView) {
+        _mBottomView = [UIView new];
+        _mBottomView.backgroundColor = [UIColor whiteColor];
+    }
+    return _mBottomView;
+}
+
+-(UIView*)mLineView{
+    if (!_mLineView) {
+        _mLineView = [UIView new];
+        _mLineView.backgroundColor = Color_black_30;
+        _mLineView.backgroundColor = [UIColor redColor];
+    }
+    return _mLineView;
+}
+
 - (UILabel*)mFirstName{
     if (!_mFirstName) {
         _mFirstName = [UILabel new];
@@ -509,6 +495,19 @@
     }
     return _mFirstName;
 }
+-(UILabel*)mFirstPingLabel{
+    if (!_mFirstPingLabel) {
+        _mFirstPingLabel = [UILabel new];
+        [_mFirstPingLabel setText:@"拼"];
+        _mFirstPingLabel.textColor = [UIColor whiteColor];
+        _mFirstPingLabel.backgroundColor = Color_orange_F866822;
+        _mFirstPingLabel.font = Font15;
+        _mFirstPingLabel.layer.cornerRadius = 2.0f;
+        [_mFirstPingLabel sizeToFit];
+    }
+    return _mFirstPingLabel;
+}
+
 - (UILabel*)mFirstCount{
     if (!_mFirstCount) {
         _mFirstCount = [UILabel new];
@@ -527,6 +526,20 @@
     }
     return _mSecondName;
 }
+
+-(UILabel*)mSecondPingLabel{
+    if (!_mSecondPingLabel) {
+        _mSecondPingLabel = [UILabel new];
+        [_mSecondPingLabel setText:self.mFirstPingLabel.text];
+        _mSecondPingLabel.textColor = self.mFirstPingLabel.textColor;
+        _mSecondPingLabel.backgroundColor = self.mFirstPingLabel.backgroundColor;
+        _mSecondPingLabel.font = self.mFirstPingLabel.font;
+        _mSecondPingLabel.layer.cornerRadius = self.mFirstPingLabel.layer.cornerRadius;
+        [_mSecondPingLabel sizeToFit];
+    }
+    return _mSecondPingLabel;
+}
+
 - (UILabel*)mSecondCount{
     if (!_mSecondCount) {
         _mSecondCount = [UILabel new];
