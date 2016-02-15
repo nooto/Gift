@@ -199,9 +199,8 @@
         make.right.equalTo(weakSelf.view.mas_right).offset(-20);
         make.centerY.equalTo(weakSelf.mFirstName.mas_centerY);
         make.height.equalTo(weakSelf.mFirstName.mas_height);
-        make.width.equalTo(weakSelf.mFirstName.mas_width);
+//        make.width.equalTo(weakSelf.mFirstName.mas_width);
     }];;
-
     
     
     [self.mSecondName mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -220,7 +219,7 @@
         make.right.equalTo(weakSelf.view.mas_right).offset(-20);
         make.centerY.equalTo(weakSelf.mSecondName.mas_centerY);
         make.height.equalTo(weakSelf.mSecondName.mas_height);
-        make.width.equalTo(weakSelf.mSecondName.mas_width);
+//        make.width.equalTo(weakSelf.mSecondName.mas_width);
     }];;
     
     UILabel *secondDate = [UILabel new];
@@ -236,14 +235,18 @@
         make.width.equalTo(weakSelf.mSecondName.mas_width);
         make.height.equalTo(weakSelf.mSecondName.mas_height);
     }];
-
-    
-    
     
     [self.mNameLabel setText:self.mCurData.name];
     [self.mCountLabel setText:self.mCurData.mCount];
     [self.mReceiveCountLabel setText:self.mCurData.mRecedtive];
     [self.mBestCountLabel setText:self.mCurData.mBest];
+    [self.mFirstName setText:@"东方人"];
+    [self.mFirstCount setText:@"2312313.9元"];
+    [self.mFirstCount sizeToFit];
+    
+    [self.mSecondName setText:@"东方人"];
+    [self.mSecondCount setText:@"23.9元"];
+    [self.mSecondCount sizeToFit];
     
 }
 
@@ -345,27 +348,26 @@
 
 -(void)showSaveTIp{
     
+    UIImageView *imagev = [[UIImageView alloc] init];
+    imagev.image = [UIImage imageWithView:[UIApplication sharedApplication].keyWindow];
+    imagev.image = [UIImage imageWithView:[UINavigationBar appearance]];
+//    imagev.image = [self ScreenShot];
+//    UIView *screenshotView = [[self view] snapshotViewAfterScreenUpdates:YES];
+//    imagev.image = [UIImage imageWithView:screenshotView];
     
-
-//    UIImageView *imagev = [[UIImageView alloc] init];
-//    imagev.image = [UIImage imageWithView:[UIApplication sharedApplication].keyWindow];
-//    imagev.image = [UIImage imageWithView:[UINavigationBar appearance]];
-////    imagev.image = [self ScreenShot];
-////    UIView *screenshotView = [[self view] snapshotViewAfterScreenUpdates:YES];
-////    imagev.image = [UIImage imageWithView:screenshotView];
-//    
-//    WeakSelf(weakSelf);
-//    EHCustomAlertView *alertView = [[EHCustomAlertView alloc] initWithTitle:nil message:@"是否保存到相册" leftButton:@"不保存" rightButton:@"保存" selectActin:^(NSInteger index) {
-//        if (index == 1) {
-//            weakSelf.isSave = YES;
-//            UIImageWriteToSavedPhotosAlbum(imagev.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-//        }
-//        else{
-//            weakSelf.isSave = NO;
-//        }
-//    }];
-//    
-//    [alertView show];
+    WeakSelf(weakSelf);
+    EHCustomAlertView *alertView = [[EHCustomAlertView alloc] initWithTitle:nil message:@"是否保存到相册" leftButton:@"不保存" rightButton:@"保存" selectActin:^(NSInteger index) {
+        if (index == 1) {
+            weakSelf.isSave = YES;
+            UIImageWriteToSavedPhotosAlbum(imagev.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        }
+        else{
+            weakSelf.isSave = NO;
+        }
+    }];
+    
+    [alertView show];
+    
 }
 
 - (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo{
@@ -389,11 +391,6 @@
 }
 
 -(void)viewDidLayoutSubviews{
-    for (UIView *subvIEW in self.view.subviews) {
-        subvIEW.layer.borderColor = [UIColor grayColor].CGColor;
-        subvIEW.layer.borderWidth = 1.0F;
-        subvIEW.layer.cornerRadius = 10.0F;
-    }
     _mAvatorImage.layer.cornerRadius = CGRectGetWidth(_mAvatorImage.frame)/2;
     [super viewDidLayoutSubviews];
 }
@@ -513,7 +510,7 @@
         _mFirstCount = [UILabel new];
         [_mFirstCount setFont:self.mReceiveCountLabel.font];
         [_mFirstCount setTextColor:self.mReceiveCountLabel.textColor];
-        _mFirstCount.textAlignment = self.mReceiveCountLabel.textAlignment;
+        _mFirstCount.textAlignment = NSTextAlignmentRight;
     }
     return _mFirstCount;
 }
@@ -543,9 +540,9 @@
 - (UILabel*)mSecondCount{
     if (!_mSecondCount) {
         _mSecondCount = [UILabel new];
-        [_mSecondCount setFont:self.mReceiveCountLabel.font];
-        [_mSecondCount setTextColor:self.mReceiveCountLabel.textColor];
-        _mSecondCount.textAlignment = self.mReceiveCountLabel.textAlignment;
+        [_mSecondCount setFont:self.mFirstCount.font];
+        [_mSecondCount setTextColor:self.mFirstCount.textColor];
+        _mSecondCount.textAlignment = self.mFirstCount.textAlignment;
     }
     return _mSecondCount;
 }
